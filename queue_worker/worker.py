@@ -35,6 +35,8 @@ class Worker:
             if inspect.iscoroutinefunction(f1):
                 task1 = f1(*args1, **kwargs1)
                 threadLocal.async_tasks.append(task1)
+                # loop.run_until_complete(asyncio.sleep(0))
+                # print("hello world")
             else:
                 task1 = partial(f1, *args1, **kwargs1)
                 threadLocal.sync_tasks.append(task1)
