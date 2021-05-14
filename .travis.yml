@@ -21,8 +21,8 @@ deploy:
     python: 3.8
     repo: jiamo/queue_worker
     tags: true
-install: pip install -U tox-travis
+install: poetry install
 language: python
 python:
 - 3.8
-script: tox
+script: poetry run pytest tests
