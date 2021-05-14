@@ -3,6 +3,7 @@ before_deploy:
   - poetry build
 deploy:
   provider: pypi
+  distributions: sdist bdist_wheel
   user: jiamo
   password:
     secure: !!binary |
