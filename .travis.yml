@@ -21,7 +21,10 @@ deploy:
     python: 3.8
     repo: jiamo/queue_worker
     tags: true
-install: poetry install
+install:
+  - pip install --upgrade pip
+  - pip install poetry
+  - poetry install
 language: python
 python:
 - 3.8
