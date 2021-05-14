@@ -3,9 +3,6 @@
 queue worker for sync and async function
 
 [![Unix Build Status](https://img.shields.io/travis/com/jiamo/queue_worker.svg?label=unix)](https://travis-ci.com/jiamo/queue_worker)
-[![Windows Build Status](https://img.shields.io/appveyor/ci/jiamo/queue_worker.svg?label=windows)](https://ci.appveyor.com/project/jiamo/queue_worker)
-[![Coverage Status](https://img.shields.io/codecov/c/gh/jiamo/queue_worker)](https://codecov.io/gh/jiamo/queue_worker)
-[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/jiamo/queue_worker.svg)](https://scrutinizer-ci.com/g/jiamo/queue_worker)
 [![PyPI Version](https://img.shields.io/pypi/v/queue_worker.svg)](https://pypi.org/project/queue_worker)
 [![PyPI License](https://img.shields.io/pypi/l/queue_worker.svg)](https://pypi.org/project/queue_worker)
 
