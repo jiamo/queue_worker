@@ -75,7 +75,7 @@ class Queuey:
     def get_sync(self):
         item, fut = self.get_noblock()
         if fut:
-            item = fut.result()  # 这个可以获取到 item 为什么不做成不能result 需要在去取呢
+            item = fut.result()
         return item
 
     def get(self):

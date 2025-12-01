@@ -50,7 +50,7 @@ class Worker:
                 threadLocal.wait_futures = []
 
             # TODO make 5 as args
-            for i in range(5):
+            for i in range(50):
                 f_tuple1, fut1 = self.q.get_noblock()
                 if fut1:
                     threadLocal.wait_futures.append(fut1)

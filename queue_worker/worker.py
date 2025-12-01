@@ -12,10 +12,11 @@ from .yqueue import Queuey, from_coroutine
 
 
 class Worker:
-    def __init__(self, n: int, queue_maxsize=0, ignore_exceptions=()):
+    def __init__(self, n: int, queue_maxsize=0, ignore_exceptions=(), batch_size=50):
         self.threads = [Thread(target=self._w, daemon=True) for _ in range(n)]
         self.q = Queuey(queue_maxsize)
         self.ignore_exceptions = ignore_exceptions
+        self.batch_size = batch_size
         for t in self.threads:
             t.start()
 
@@ -35,8 +36,6 @@ class Worker:
             if inspect.iscoroutinefunction(f1):
                 task1 = f1(*args1, **kwargs1)
                 threadLocal.async_tasks.append(task1)
-                # loop.run_until_complete(asyncio.sleep(0))
-                # print("hello world")
             else:
                 task1 = partial(f1, *args1, **kwargs1)
                 threadLocal.sync_tasks.append(task1)
@@ -49,8 +48,7 @@ class Worker:
                 # first wait last step waiting future
                 threadLocal.wait_futures = []
 
-            # TODO make 5 as args
-            for i in range(5):
+            for i in range(self.batch_size):
                 f_tuple1, fut1 = self.q.get_noblock()
                 if fut1:
                     threadLocal.wait_futures.append(fut1)
